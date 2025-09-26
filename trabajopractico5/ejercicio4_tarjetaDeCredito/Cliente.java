@@ -1,15 +1,11 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Cliente {
     private String nombre;
     private String dni;
-    private List<TarjetaDeCredito> tarjetas; // Asociación bidireccional
+    private TarjetaDeCredito tarjeta; // una sola tarjeta
 
     public Cliente(String nombre, String dni) {
         this.nombre = nombre;
         this.dni = dni;
-        this.tarjetas = new ArrayList<>();
     }
 
     // Getters y setters
@@ -19,13 +15,17 @@ public class Cliente {
     public String getDni() { return dni; }
     public void setDni(String dni) { this.dni = dni; }
 
-    public List<TarjetaDeCredito> getTarjetas() { return tarjetas; }
+    public TarjetaDeCredito getTarjeta() { return tarjeta; }
 
-    // Método para asociar tarjeta
-    public void agregarTarjeta(TarjetaDeCredito tarjeta) {
-        tarjetas.add(tarjeta);
+    public void setTarjeta(TarjetaDeCredito tarjeta) {
+        this.tarjeta = tarjeta;
         if (tarjeta.getCliente() != this) {
             tarjeta.setCliente(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente[nombre=" + nombre + ", dni=" + dni + "]";
     }
 }
