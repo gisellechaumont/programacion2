@@ -7,9 +7,11 @@ public class Autor {
         this.nacionalidad = nacionalidad;
     }
 
-    // Getters y setters
     public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
-
     public String getNacionalidad() { return nacionalidad; }
-    pu
+
+    @Override
+    public String toString() {
+        return "Autor[nombre=" + nombre + ", nacionalidad=" + nacionalidad + "]";
+    }
+}
