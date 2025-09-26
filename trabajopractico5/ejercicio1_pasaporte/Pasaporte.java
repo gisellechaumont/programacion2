@@ -1,28 +1,32 @@
-public class Pasaporte {
-    private String numero;
-    private String fechaEmision;
-    private Foto foto; // composición: Pasaporte contiene Foto
-    private Titular titular; // asociación bidireccional
+// Clase Titular (asociación bidireccional con Pasaporte)
+public class Titular {
+    private String nombre;
+    private String dni;
+    private Pasaporte pasaporte; // referencia bidireccional
 
-    public Pasaporte(String numero, String fechaEmision, Foto foto) {
-        this.numero = numero;
-        this.fechaEmision = fechaEmision;
-        this.foto = foto;
+    public Titular(String nombre, String dni) {
+        this.nombre = nombre;
+        this.dni = dni;
     }
 
-    // Getters y setters
-    public String getNumero() { return numero; }
-    public void setNumero(String numero) { this.numero = numero; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public String getFechaEmision() { return fechaEmision; }
-    public void setFechaEmision(String fechaEmision) { this.fechaEmision = fechaEmision; }
+    public String getDni() {
+        return dni;
+    }
 
-    public Foto getFoto() { return foto; }
-    public void setFoto(Foto foto) { this.foto = foto; }
+    public Pasaporte getPasaporte() {
+        return pasaporte;
+    }
 
-    public Titular getTitular() { return titular; }
-    public void setTitular(Titular titular) { 
-        this.titular = titular; 
-        titular.setPasaporte(this); // mantiene bidireccionalidad
+    public void setPasaporte(Pasaporte pasaporte) {
+        this.pasaporte = pasaporte;
+    }
+
+    @Override
+    public String toString() {
+        return "Titular [nombre=" + nombre + ", dni=" + dni + "]";
     }
 }
