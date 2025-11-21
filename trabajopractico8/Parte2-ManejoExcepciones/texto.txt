@@ -1,0 +1,3 @@
+Este es un archivo de prueba para el TP8.
+Se utiliza para los ejercicios de manejo de archivos.
+Lectura con Scanner y con BufferedReader.

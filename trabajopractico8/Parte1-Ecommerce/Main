@@ -1,0 +1,18 @@
+public class Main {
+    public static void main(String[] args) {
+        Cliente c = new Cliente("Giselle");
+        Pedido pedido = new Pedido(c);
+
+        pedido.agregarProducto(new Producto("Mouse", 5000));
+        pedido.agregarProducto(new Producto("Teclado", 12000));
+
+        double total = pedido.calcularTotal();
+        System.out.println("Total: $" + total);
+
+        TarjetaCredito tc = new TarjetaCredito();
+        double totalConDto = tc.aplicarDescuento(total);
+        tc.procesarPago(totalConDto);
+
+        pedido.cambiarEstado("ENVIADO");
+    }
+}
